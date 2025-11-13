@@ -19,6 +19,15 @@ nums.pop(nums[4])
 console.log(nums)
 
 
+for(let i=0; i<nums.length;i++){
+    console.log(nums[i])
+}
+for(let number in nums){
+    console.log(nums[number])
+}
+for(let numbers of nums){
+    console.log(numbers)
+}
 
 
 
