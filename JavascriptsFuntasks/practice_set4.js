@@ -3,10 +3,14 @@ console.log("som\"".length);
 // som"
 
 //Q2 Explore the includes, start with and ends with functions of a string
+const sentence='The quick brown fox jumps over the lazy dog.';
+const word='fox';
+console.log(`The word "${word}" ${sentence.includes(word)? "is": "is not"} in the sentence`)
 
 //Q3 WAP to convert a given string to lowercase
 let st = "SOHAM"
-console.log(st.toLowerCase);
+let a=st.toLowerCase();
+console.log(a);
 
 //Q4 Extract the amount out of this string "Please give Rs 1000"
 
