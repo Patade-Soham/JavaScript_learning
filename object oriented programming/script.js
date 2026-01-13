@@ -118,24 +118,79 @@
 
 // Inheritance
 
-class animal{
-    jump(){
-        console.log('toing ! toing !....')
+// class animal{
+//     jump(){
+//         console.log('toing ! toing !....')
+//     }
+//     sleep(){
+//         console.log('Zzzzzzzz....')
+//     }
+
+// }
+
+// class Dawg extends animal{
+//     bark(){
+//         console.log('bhaww bhaww ...')
+//     }
+// }
+
+// let dogeshBhai = new Dawg();
+
+// dogeshBhai.bark();
+// dogeshBhai.jump();
+// dogeshBhai.sleep();
+
+// Method Overriding
+
+class Employee{
+    constructor(name){
+        this.name= name
+        console.log(`${name}`)
     }
-    sleep(){
-        console.log('Zzzzzzzz....')
+    login(){
+        console.log(`Employee has logged in `)
+    }
+    logout(){
+        console.log(`Employee has logged out `)
+    }
+    requestLeaves(leaves){
+        console.log(`Employee has requested ${leaves} leaves`)
     }
 
 }
 
-class Dawg extends animal{
-    bark(){
-        console.log('bhaww bhaww ...')
+class Programmer extends Employee{
+    constructor(name){
+        super(name)
+        console.log('this is the programmer constructor')
+    }
+    requestCoffee(x){
+        console.log(`Employee hs requested ${x} coffee`)
+    }
+    requestLeaves(leaves){
+        super.requestLeaves(leaves)
+        // console.log(`Employee has requested ${leaves+1} leaves (one extra)`)
+    }
+}
+                 
+let e = new Programmer('Soham')
+e.login()
+e.requestLeaves(3)
+
+// Static Methods
+
+class Animal{
+    constructor(name) {
+        this.name=Animal.Capitalize(name)
+    }
+    walk(){
+        console.log(this.name+' is walking')
+    }
+    static Capitalize(name){
+        return name.charAt(0).toUpperCase()+name.substr(1,name.length)
     }
 }
 
-let dogeshBhai = new Dawg();
+let a = new Animal('astroid destroyer')
 
-dogeshBhai.bark();
-dogeshBhai.jump();
-dogeshBhai.sleep();
+a.walk()
