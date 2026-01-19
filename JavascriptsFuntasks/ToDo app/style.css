@@ -68,8 +68,10 @@ input{
     height: 5rem;
     display: flex;
     justify-content: space-around;
+    gap: 4px;
     align-items: center;
     border-radius: 10px;
+    padding: 8px;
 }
 .text{
     
@@ -99,4 +101,19 @@ input{
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;
+}
+#Completed{
+    height: 3.01rem;
+    width: 8rem;
+    background-color: rgba(16, 80, 255, 0.788);
+    font-size: larger;
+    font-weight: bold;
+    color: beige;
+    font-family:Arial, Helvetica, sans-serif ;
+    border-radius:7px;
+    border: 1px solid  rgb(16, 80, 255);
+    box-shadow: 1px 1px 4px gray;
+}
+.textdecor{
+    text-decoration: dashed;
 }
