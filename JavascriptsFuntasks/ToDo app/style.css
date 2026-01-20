@@ -81,7 +81,7 @@ input{
     align-items: center;
     color: black;
 }
-#delete{
+.delete{
     height: 3rem;
     width: 8rem;
     background-color: rgba(16, 80, 255, 0.788);
@@ -102,7 +102,7 @@ input{
     align-items: center;
     border-radius: 10px;
 }
-#Completed{
+.Completed{
     height: 3.01rem;
     width: 8rem;
     background-color: rgba(16, 80, 255, 0.788);
@@ -115,5 +115,5 @@ input{
     box-shadow: 1px 1px 4px gray;
 }
 .textdecor{
-    text-decoration: dashed;
+    text-decoration: line-through solid black;
 }

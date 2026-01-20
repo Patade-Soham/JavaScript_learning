@@ -1,44 +1,100 @@
+// const add_button = document.getElementById('form_button')
+
+// let i = 0;
+
+// const add =function addTask(){
+    
+//     let task = document.getElementById('inp').value;
+//     let taskstr = 
+//     `
+//                 <div class="task">
+//                     <div class="text">
+//                         <h4>${task}</h4>
+//                     </div>
+//                     <button class="Completed">Completed</button>
+//                     <button class="delete">delete</button>
+//                 </div>
+    
+    
+//     `;
+//     if(task.trim()==''){
+//         alert('Enter a task to add')
+//     }else{
+//         let tasknode=document.createElement('div');
+//         tasknode.className='task'
+//         tasknode.id = `taskName${i}`
+//         tasknode.innerHTML=taskstr;
+//         document.getElementById('mainbox').append(tasknode)
+//         localStorage.setItem(`taskName${i}`,task)
+//         i++;
+        
+
+//         // task should remain even after storing
+//     }
+
+// }
+
+// add_button.addEventListener('click',add)
+// document.getElementById('mainbox').addEventListener('click',(event)=>{
+//     let node =event.target.parentElement
+//     let elem = event.target.className
+//     if(elem=='Completed'){
+//         console.log('done')
+//         //change css
+//         console.log(event.target.closest('.task').querySelector('h4').classList.toggle('textdecor'))
+
+
+        
+//     }else if(elem=='delete'){
+//         console.log('eleminated')
+//         node.parentElement.remove()
+//     }
+
+// })
+
+
+
 const add_button = document.getElementById('form_button')
-const del_button = document.getElementById('delete')
-const comp_button = document.getElementById('Completed')
 let i = 0;
 
-const add =function addTask(){
-    
+const add = function () {
     let task = document.getElementById('inp').value;
-    let taskstr = 
-    `
-                <div class="task">
-                    <div class="text">
-                        <h4>${task}</h4>
-                    </div>
-                    <button id="Completed">Completed</button>
-                    <button id="delete">delete</button>
-                </div>
-    
-    
-    `;
-    if(task.trim()==''){
-        alert('Enter a task to add')
-    }else{
-        let tasknode=document.createElement('div');
-        tasknode.className='task'
-        tasknode.id = `taskName${i}`
-        tasknode.innerHTML=taskstr;
-        document.getElementById('mainbox').append(tasknode)
-        localStorage.setItem(`taskName${i}`,task)
-        i++;
-        // task should remain even after storing
+
+    if (task.trim() === '') {
+        alert('Enter a task to add');
+        return;
     }
 
-}
-const done =function update(){
-    alert('done') // these task should be done on event basis i.e. where the event is happening
-}
-const del =function addTask(){
-    alert('deleted')
-}
+    let tasknode = document.createElement('div');
+    tasknode.className = 'task';
+    tasknode.id = `taskName${i}`;
 
-add_button.addEventListener('click',add)
-del_button.addEventListener('click',del)
-comp_button.addEventListener('click',done)// wont work cause buttons are been created after adding items needs to be fixed
+    tasknode.innerHTML = `
+        <div class="text">
+            <h4>${task}</h4>
+        </div>
+        <button class="Completed">Completed</button>
+        <button class="delete">Delete</button>
+    `;
+
+    document.getElementById('mainbox').append(tasknode);
+    localStorage.setItem(`taskName${i}`, task);
+    i++;
+};
+
+add_button.addEventListener('click', add);
+
+document.getElementById('mainbox').addEventListener('click', (event) => {
+
+
+    if (event.target.classList.contains('Completed')) {
+        event.target
+            .closest('.task')
+            .querySelector('h4')
+            .classList.toggle('textdecor');
+    }
+
+    if (event.target.classList.contains('delete')) {
+        event.target.closest('.task').remove();
+    }
+});
