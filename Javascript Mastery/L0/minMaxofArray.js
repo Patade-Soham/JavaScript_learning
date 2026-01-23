@@ -12,5 +12,5 @@ for (let i = 1; i < arr.length; i++) {
     }
 }
 
-console.log("Min:", min);
-console.log("Max:", max);
+console.log("Min is:", min);
+console.log("Max: is", max);
