@@ -55,7 +55,7 @@
 
 
 const add_button = document.getElementById('form_button')
-let i = 0;
+
 
 const add = function () {
     let task = document.getElementById('inp').value;
@@ -67,7 +67,7 @@ const add = function () {
 
     let tasknode = document.createElement('div');
     tasknode.className = 'task';
-    tasknode.id = `taskName${i}`;
+    tasknode.id = `${task}`
 
     tasknode.innerHTML = `
         <div class="text">
@@ -78,8 +78,9 @@ const add = function () {
     `;
 
     document.getElementById('mainbox').append(tasknode);
-    localStorage.setItem(`taskName${i}`, task);
-    i++;
+    localStorage.setItem(`${task}`, task);
+    document.getElementById('inp').value=""
+    
 };
 
 add_button.addEventListener('click', add);
@@ -95,6 +96,8 @@ document.getElementById('mainbox').addEventListener('click', (event) => {
     }
 
     if (event.target.classList.contains('delete')) {
+        let nodetodel=event.target.closest('div').id
+        localStorage.removeItem(nodetodel)
         event.target.closest('.task').remove();
     }
 });
