@@ -62,7 +62,13 @@ const add = function () {
 
     if (task.trim() === '') {
         alert('Enter a task to add');
+        document.getElementById('inp').value=""
         return;
+    }
+    if(task.trim() in localStorage){
+        alert('cant enter same task')
+        document.getElementById('inp').value=""
+        return
     }
 
     let tasknode = document.createElement('div');
@@ -93,6 +99,12 @@ document.getElementById('mainbox').addEventListener('click', (event) => {
             .closest('.task')
             .querySelector('h4')
             .classList.toggle('textdecor');
+        // let CompletedTask =event.target
+        //     .closest('.task')
+        //     .querySelector('h4').textContent
+
+        // localStorage.setItem(`${event.target
+        //     .closest('.task').id}`,`${CompletedTask}`)
     }
 
     if (event.target.classList.contains('delete')) {
@@ -101,3 +113,24 @@ document.getElementById('mainbox').addEventListener('click', (event) => {
         event.target.closest('.task').remove();
     }
 });
+
+function loadTask (){
+    for(let i = 0;i<localStorage.length;i++){
+        let task = localStorage.key(i);
+        let tasknode = document.createElement('div');
+        tasknode.className = 'task';
+        tasknode.id = `${task}`
+
+        tasknode.innerHTML = `
+            <div class="text">
+                <h4>${task}</h4>
+            </div>
+            <button class="Completed">Completed</button>
+            <button class="delete">Delete</button>
+        `;
+
+        document.getElementById('mainbox').append(tasknode);
+    }
+
+}
+loadTask()
