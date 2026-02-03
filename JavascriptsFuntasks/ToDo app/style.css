@@ -22,8 +22,9 @@
     align-items: center;
     justify-content: space-around;
     gap: 30px;
-    box-shadow: 0px 1px 20px rgb(190, 190, 190);;
+    box-shadow: 2px 2px 20px rgb(88, 87, 87);;
     background:white;
+    border-radius: 9px;
 }
 h1{
     font-size: 3rem;
@@ -47,7 +48,7 @@ input{
     width: 100%;
     height: 3.3rem;
     border: gray 1px solid;
-    padding: 3px;
+    padding: 4px;
     border-radius: 10px;
 }
 #form_button{
@@ -59,8 +60,13 @@ input{
     color: beige;
     font-family:Arial, Helvetica, sans-serif ;
     border-radius:7px;
-    border: 1px solid  rgb(16, 80, 255);
-    box-shadow: 1px 1px 4px gray;
+    border: 1px solid   rgba(16, 80, 255, 0.788);
+    box-shadow: 1px 1px 7px gray;
+}
+#form_button:hover{
+     background-color: rgb(0, 44, 165);
+     transform: scale(1.05)
+    
 }
 .task{
     background:rgba(179, 179, 179, 0.603);
@@ -80,6 +86,8 @@ input{
     display: flex;
     align-items: center;
     color: black;
+    font-size: 1.3rem;
+    font-weight: bolder;
 }
 .delete{
     height: 3rem;
@@ -117,3 +125,150 @@ input{
 .textdecor{
     text-decoration: line-through solid black;
 }
+button:hover{
+    background-color: rgb(0, 44, 165);
+    transform: scale(1.05)
+}
+
+/* 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #eaf2ff, #f8fbff);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#mainbox{
+    border: 1px solid #d6e0f5;
+    height:auto;
+    width: 40rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem ;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+    background:white;
+    border-radius: 14px;
+    box-shadow: 
+        0px 10px 30px rgba(0, 60, 160, 0.15),
+        0px 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+h1{
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1e3a8a;
+}
+
+.todoform{
+    height: 8rem;
+    width: 100%;
+}
+
+#taskadd{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1px;
+}
+
+input{
+    width: 100%;
+    height: 3.3rem;
+    border: 1px solid #c7d2fe;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.25s ease;
+}
+
+input:focus{
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+#form_button,
+.delete,
+.Completed{
+    height: 3.5rem;
+    width: 8rem;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow:
+        0px 6px 15px rgba(37, 99, 235, 0.35),
+        inset 0px -2px 4px rgba(0, 0, 0, 0.15);
+    transition: all 0.25s ease;
+}
+
+#form_button:hover,
+.delete:hover,
+.Completed:hover{
+    background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow:
+        0px 10px 25px rgba(30, 64, 175, 0.45);
+}
+
+.task{
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-around;
+    gap: 6px;
+    align-items: center;
+    border-radius: 14px;
+    padding: 10px;
+    box-shadow:
+        0px 6px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.25s ease;
+}
+
+.task:hover{
+    transform: translateY(-2px);
+    box-shadow:
+        0px 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.text{
+    width: 70%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    color: #0f172a;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+#taskbox{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.textdecor{
+    text-decoration: line-through;
+    color: #64748b;
+} */
