@@ -53,27 +53,26 @@
 // })
 
 
-
 const add_button = document.getElementById('form_button')
 
-
 const add = function () {
-    let task = document.getElementById('inp').value;
+    let task = document.getElementById('inp').value
 
     if (task.trim() === '') {
-        alert('Enter a task to add');
-        document.getElementById('inp').value=""
-        return;
-    }
-    if(task.trim() in localStorage){
-        alert('cant enter same task')
-        document.getElementById('inp').value=""
+        alert('Enter a task to add')
+        document.getElementById('inp').value = ''
         return
     }
 
-    let tasknode = document.createElement('div');
-    tasknode.className = 'task';
-    tasknode.id = `${task}`
+    if (task.trim() in localStorage || `& ${task.trim()}` in localStorage) {
+        alert('cant enter same task')
+        document.getElementById('inp').value = ''
+        return
+    }
+
+    let tasknode = document.createElement('div')
+    tasknode.className = 'task'
+    tasknode.id = task
 
     tasknode.innerHTML = `
         <div class="text">
@@ -81,56 +80,64 @@ const add = function () {
         </div>
         <button class="Completed">Completed</button>
         <button class="delete">Delete</button>
-    `;
+    `
 
-    document.getElementById('mainbox').append(tasknode);
-    localStorage.setItem(`${task}`, task);
-    document.getElementById('inp').value=""
-    
-};
+    document.getElementById('mainbox').append(tasknode)
+    localStorage.setItem(task, task)
+    document.getElementById('inp').value = ''
+}
 
-add_button.addEventListener('click', add);
+add_button.addEventListener('click', add)
 
 document.getElementById('mainbox').addEventListener('click', (event) => {
 
-
     if (event.target.classList.contains('Completed')) {
-        event.target
-            .closest('.task')
-            .querySelector('h4')
-            .classList.toggle('textdecor');
-        // let CompletedTask =event.target
-        //     .closest('.task')
-        //     .querySelector('h4').textContent
+        let taskDiv = event.target.closest('.task')
+        let text = taskDiv.querySelector('h4')
+        let key = taskDiv.id
 
-        // localStorage.setItem(`${event.target
-        //     .closest('.task').id}`,`${CompletedTask}`)
+        text.classList.toggle('textdecor')
+
+        if (text.classList.contains('textdecor')) {
+            localStorage.removeItem(key)
+            let newKey = `& ${key}`
+            localStorage.setItem(newKey, newKey)
+            taskDiv.id = newKey
+        } else {
+            let cleanKey = key.replace('& ', '')
+            localStorage.removeItem(key)
+            localStorage.setItem(cleanKey, cleanKey)
+            taskDiv.id = cleanKey
+        }
     }
 
     if (event.target.classList.contains('delete')) {
-        let nodetodel=event.target.closest('div').id
-        localStorage.removeItem(nodetodel)
-        event.target.closest('.task').remove();
+        let key = event.target.closest('.task').id
+        localStorage.removeItem(key)
+        event.target.closest('.task').remove()
     }
-});
+})
 
-function loadTask (){
-    for(let i = 0;i<localStorage.length;i++){
-        let task = localStorage.key(i);
-        let tasknode = document.createElement('div');
-        tasknode.className = 'task';
-        tasknode.id = `${task}`
+function loadTask() {
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i)
+        let completed = key.startsWith('& ')
+        let task = completed ? key.replace('& ', '') : key
+
+        let tasknode = document.createElement('div')
+        tasknode.className = 'task'
+        tasknode.id = key
 
         tasknode.innerHTML = `
             <div class="text">
-                <h4>${task}</h4>
+                <h4 class="${completed ? 'textdecor' : ''}">${task}</h4>
             </div>
             <button class="Completed">Completed</button>
             <button class="delete">Delete</button>
-        `;
+        `
 
-        document.getElementById('mainbox').append(tasknode);
+        document.getElementById('mainbox').append(tasknode)
     }
-
 }
+
 loadTask()
