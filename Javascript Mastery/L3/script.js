@@ -50,3 +50,29 @@ const quizData = [
         answer: "style"
     }
 ];
+
+let a = document.getElementById('A');
+let b = document.getElementById('B');
+let c = document.getElementById('C');
+let d = document.getElementById('D');
+let question = document.getElementById('que');
+let question_no = 0;
+
+function questionDetails(q) {
+
+    a.textContent = `${quizData[q].options[0]}`;
+    b.textContent = `${quizData[q].options[1]}`;
+    c.textContent = `${quizData[q].options[2]}`;
+    d.textContent = `${quizData[q].options[3]}`;
+    question.textContent = `${quizData[q].question}`;
+
+}
+
+questionDetails(question_no);
+
+const nextbtn = document.getElementById('btn');
+
+nextbtn.addEventListener('click', () => {
+    question_no++;
+    questionDetails(question_no);
+});
