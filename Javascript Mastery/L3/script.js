@@ -55,6 +55,12 @@ let a = document.getElementById('A');
 let b = document.getElementById('B');
 let c = document.getElementById('C');
 let d = document.getElementById('D');
+
+let opt1 = document.getElementById('opt1');
+let opt2 = document.getElementById('opt2');
+let opt3 = document.getElementById('opt3');
+let opt4 = document.getElementById('opt4');
+
 let question = document.getElementById('que');
 let question_no = 0;
 
@@ -73,6 +79,22 @@ questionDetails(question_no);
 const nextbtn = document.getElementById('btn');
 
 nextbtn.addEventListener('click', () => {
+    if (question_no === quizData.length - 1) {
+        alert("Quiz Completed!");
+        return;
+    } else {
+        if(opt1.checked && a.textContent === quizData[question_no].answer) {
+            alert("Correct Answer!");
+        } else if(opt2.checked && b.textContent === quizData[question_no].answer) {    
+            alert("Correct Answer!");
+        } else if(opt3.checked && c.textContent === quizData[question_no].answer) {    
+            alert("Correct Answer!");
+        } else if(opt4.checked && d.textContent === quizData[question_no].answer) {    
+            alert("Correct Answer!");
+        } else {
+            alert("Incorrect Answer!");
+        }
+    }     
     question_no++;
     questionDetails(question_no);
 });
