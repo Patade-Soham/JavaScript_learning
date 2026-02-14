@@ -70,7 +70,7 @@ body {
     text-align: right;
 }
 
-#next {
+#btn {
     padding: 10px 20px;
     border: none;
     background-color: #667eea;
@@ -81,6 +81,73 @@ body {
     transition: 0.3s;
 }
 
-#next:hover {
+#btn:hover {
     background-color: #5563c1;
+}
+.button{
+    padding: 10px 20px;
+    border: none;
+    background-color: #667eea;
+    color: white;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 10px;
+}
+.button:hover {
+    background-color: #5563c1;
+}
+/* #finalSheet{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+/* .solution{
+    font-size:1.3rem;
+    border: 1px solid #333;
+    margin-top: 4px;
+    border-radius:10px ;
+    padding: 5px;
+}
+p{
+    font-weight: bolder;
+}
+#sel{
+    color: red;
+}
+#correct{
+    color: green;
+} */
+.checkResultsBtn{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.solution{
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-color: #cacaca;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.solution:hover{
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.08);
+}
+
+.solution p{
+    margin: 6px 0;
+    font-weight: 600;
+}
+
+.solution #sel{
+    color: #dc2626;
+}
+
+.solution #correct{
+    color: #16a34a;
 }

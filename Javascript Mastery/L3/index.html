@@ -9,35 +9,37 @@
 <body>
 
     <div class="container">
-        <div class="quizBox">
-            <h2 class="question" id="que">Question will appear here</h2>
+        <div class="quizBox" id="main">
+            <div id="finalSheet">
+                <h2 class="question" id="que">Question will appear here</h2>
 
-            <div class="option">
-                <input type="radio" name="option" id="opt1">
-                <label id="A" for="opt1" class="option-text">Option 1</label>
+                <div class="option">
+                    <input type="radio" name="option" id="opt1" class="Option">
+                    <label id="A" for="opt1" class="option-text">Option 1</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="option" id="opt2" class="Option">
+                    <label id="B" for="opt2" class="option-text">Option 2</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="option" id="opt3" class="Option">
+                    <label id="C" for="opt3" class="option-text">Option 3</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" name="option" id="opt4" class="Option">
+                    <label id="D" for="opt4" class="option-text">Option 4</label>
+                </div>
+
             </div>
-
-            <div class="option">
-                <input type="radio" name="option" id="opt2">
-                <label id="B" for="opt2" class="option-text">Option 2</label>
-            </div>
-
-            <div class="option">
-                <input type="radio" name="option" id="opt3">
-                <label id="C" for="opt3" class="option-text">Option 3</label>
-            </div>
-
-            <div class="option">
-                <input type="radio" name="option" id="opt4">
-                <label id="D" for="opt4" class="option-text">Option 4</label>
-            </div>
-
             <div class="btn-box">
                 <button id="btn">Next</button>
             </div>
-
         </div>
     </div>
+
 
     <script src="./script.js"></script>
 </body>
